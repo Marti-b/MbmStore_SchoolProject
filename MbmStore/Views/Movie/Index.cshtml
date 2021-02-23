@@ -1,0 +1,21 @@
+﻿@addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"
+@{
+    ViewData["Title"] = "Movies";
+}
+
+<h2>Index</h2>
+
+<a asp-controller="Home" asp-action="Index">Home</a>
+
+
+<h2>@ViewBag.JungleBook.Title</h2>
+<p>Price: @String.Format("{0:0.00}", ViewBag.JungleBook.Price)</p>
+<p><img src="/Images/@ViewBag.JungleBook.ImageFileName" alt="@ViewBag.JungleBook.Title" /></p>
+
+<h2>@ViewBag.TheDarkKnight.Title</h2>
+<p>Price: @String.Format("{0:0.00}", ViewBag.TheDarkKnight.Price)</p>
+<p><img src="Images/dark-knight"/></p>
+
+<h2>@ViewBag.ForrestGump.Title</h2>
+<p>Price:  @String.Format("{0:0.00}", ViewBag.ForrestGump.Price)</p>
+<p><img src="Images/forrest-gump.jpg"/></p>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MbmStore", "MbmStore\MbmStore.csproj", "{9CF08F4B-1638-4C06-BDB1-6BBD799812A7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9CF08F4B-1638-4C06-BDB1-6BBD799812A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CF08F4B-1638-4C06-BDB1-6BBD799812A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CF08F4B-1638-4C06-BDB1-6BBD799812A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CF08F4B-1638-4C06-BDB1-6BBD799812A7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B1008058-5740-470C-9E2D-622649AD1AE4}
+	EndGlobalSection
+EndGlobal
