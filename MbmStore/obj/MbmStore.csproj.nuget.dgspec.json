@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\marti\\Dropbox\\!DK_Webdev\\Backend\\Lesson exercise\\Lesson02_MbmStore_startup\\Lesson02_MbmStore_startup\\MbmStore\\MbmStore.csproj": {}
+    "C:\\Users\\marti\\Dropbox\\!DK_Webdev\\GitHub\\MbmStore_SchoolProject\\MbmStore\\MbmStore.csproj": {}
   },
   "projects": {
-    "C:\\Users\\marti\\Dropbox\\!DK_Webdev\\Backend\\Lesson exercise\\Lesson02_MbmStore_startup\\Lesson02_MbmStore_startup\\MbmStore\\MbmStore.csproj": {
+    "C:\\Users\\marti\\Dropbox\\!DK_Webdev\\GitHub\\MbmStore_SchoolProject\\MbmStore\\MbmStore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\marti\\Dropbox\\!DK_Webdev\\Backend\\Lesson exercise\\Lesson02_MbmStore_startup\\Lesson02_MbmStore_startup\\MbmStore\\MbmStore.csproj",
+        "projectUniqueName": "C:\\Users\\marti\\Dropbox\\!DK_Webdev\\GitHub\\MbmStore_SchoolProject\\MbmStore\\MbmStore.csproj",
         "projectName": "MbmStore",
-        "projectPath": "C:\\Users\\marti\\Dropbox\\!DK_Webdev\\Backend\\Lesson exercise\\Lesson02_MbmStore_startup\\Lesson02_MbmStore_startup\\MbmStore\\MbmStore.csproj",
+        "projectPath": "C:\\Users\\marti\\Dropbox\\!DK_Webdev\\GitHub\\MbmStore_SchoolProject\\MbmStore\\MbmStore.csproj",
         "packagesPath": "C:\\Users\\marti\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\marti\\Dropbox\\!DK_Webdev\\Backend\\Lesson exercise\\Lesson02_MbmStore_startup\\Lesson02_MbmStore_startup\\MbmStore\\obj\\",
+        "outputPath": "C:\\Users\\marti\\Dropbox\\!DK_Webdev\\GitHub\\MbmStore_SchoolProject\\MbmStore\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\marti\\AppData\\Roaming\\NuGet\\NuGet.Config",

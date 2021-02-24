@@ -16,6 +16,7 @@ namespace MbmStore.Controllers
             List<Book> bookList = new List<Book>();
             bookList.Add(book);
 
+
             // MusicCD
             MusicCd musicCd = new MusicCd("Laurent Garnier", "Timeless EP", 9, 2019);
             List<MusicCd> musicCdList = new List<MusicCd>();
@@ -23,6 +24,28 @@ namespace MbmStore.Controllers
             musicCd.AddTrack("Our Futur (Loud Disco Mix)");
             musicCd.AddTrack("Positif (Midfield General Re-Edit)");
             musicCdList.Add(musicCd);
+
+            MusicCd musicCdTwo = new MusicCd("Middlemist Red", "Supersonic Overdrive", 23, 2014);
+            musicCdTwo.AddTrack("Age Of The Avalon");
+            musicCdTwo.AddTrack("Multicolored Drive");
+            musicCdTwo.AddTrack("Alas");
+            musicCdTwo.AddTrack("Sundowner");
+            musicCdTwo.AddTrack("Overseas");
+            musicCdTwo.AddTrack("Black Lips");
+            musicCdTwo.AddTrack("Fever In Your Eyes");
+            musicCdTwo.AddTrack("Single switcheroo");
+            musicCdTwo.AddTrack("Winter Enclose Me");
+            musicCdTwo.AddTrack("Animal");
+            musicCdList.Add(musicCdTwo);
+
+            MusicCd musicCdThree = new MusicCd("Coldplay", "Ghost Stories", 17, 2014);
+            musicCdThree.AddTrack("Always in My Head");
+            musicCdThree.AddTrack("Magic");
+            musicCdThree.AddTrack("Ink");
+            musicCdThree.AddTrack("True Love");
+            musicCdThree.AddTrack("Midnight");
+            musicCdThree.AddTrack("Another's Arms");
+            musicCdList.Add(musicCdThree);
 
             ViewBag.BookList = bookList;
             ViewBag.MusicCD = musicCdList;

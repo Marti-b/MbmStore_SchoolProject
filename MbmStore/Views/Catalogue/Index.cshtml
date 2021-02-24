@@ -26,29 +26,23 @@
         </div>
 
         <div class="col-md">
-            @foreach (var c in @ViewBag.MusicCD)
+            @foreach (MusicCd c in @ViewBag.MusicCD)
             {
                 <b>Album:</b><p>@c.Title</p>
                 <b>Artist:</b><p>@c.Artist</p>
                 <b>Price:</b><p>@c.Price</p>
                 <b>Released:</b><p>@c.Released</p>
-            }
-        </div>
-
-        <div class="col-sm">
-            <h3> List of tracks:</h3>
-            @{
+            
+                <h3> List of tracks:</h3>
                 <ol>
-                    @foreach (var t in @ViewBag.MusicCD)
-                    {
-                        @foreach (string track in t.Tracks)
-                        {
-                            <li>@track</li>
-                        }
-                    }
+                @foreach (string track in c.Tracks)
+                {
+                    <li>@track</li>
+                }
                 </ol>
             }
         </div>
+
     </div>
 </div>
 
