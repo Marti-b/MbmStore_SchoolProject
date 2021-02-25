@@ -6,49 +6,56 @@
     ViewData["Title"] = "Index";
 }
 @*<style>
-    .container div{
-        display: inline-block;
+        .container div{
+            display: inline-block;
+        }
+    </style>*@
+
+<a asp-controller="Home" asp-action="Index"> Back to Home page</a>
+<div class="col-md">
+    @foreach (Book b in @ViewBag.Booklist)
+    {
+        <div style="display: inline-block; padding: 50px">
+            <b>Author:</b><p>@b.Author</p>
+            <b>Title:</b><p>@b.Title</p>
+            <b>Price:</b><p>@b.Price</p>
+            <b>Publisher:</b><p>@b.Publisher</p>
+            <b>ISBN:</b><p>@b.ISBN</p>
+        </div>
     }
-</style>*@
-
-
+</div>
+<br />
+<hr />
 <div class="container">
     <div class="row">
-        <div class="col-md">
-            @foreach (Book b in @ViewBag.Booklist)
-            {
-                <b>Author:</b><p>@b.Author</p>
-                <b>Title:</b><p>@b.Title</p>
-                <b>Price:</b><p>@b.Price</p>
-                <b>Publisher:</b><p>@b.Publisher</p>
-                <b>ISBN:</b><p>@b.ISBN</p>
-            }
-        </div>
-
-        <div class="col-md">
+        <div>
+            >
             @foreach (MusicCd c in @ViewBag.MusicCD)
             {
-                <b>Album:</b><p>@c.Title</p>
-                <b>Artist:</b><p>@c.Artist</p>
-                <b>Price:</b><p>@c.Price</p>
-                <b>Released:</b><p>@c.Released</p>
-            
-                <h3> List of tracks:</h3>
-                <ol>
-                @foreach (string track in c.Tracks)
-                {
-                    <li>@track</li>
-                }
-                </ol>
+                <div style="width: 600px; float:left; height:300px; background:gray; margin:10px">
+                    <b>Album:</b><p>@c.Title</p>
+                    <b>Artist:</b><p>@c.Artist</p>
+                    <b>Price:</b><p>@c.Price</p>
+                    <b>Released:</b><p>@c.Released</p>
+                </div>
+
+
+                <div style="width: 600px; float:left; height:300px; background: yellow; margin:10px">
+                    <h3> List of tracks:</h3>
+                    <ol>
+                        @foreach (string track in c.Tracks)
+                        {
+                            <li>@track</li>
+                        }
+                    </ol>
+                </div>
             }
         </div>
 
     </div>
 </div>
 
-<div>
-    <a asp-controller="Home" asp-action="Index"> Back to Home page</a>
-</div>
+<footer> </footer>
 
 
 

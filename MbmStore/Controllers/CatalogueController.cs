@@ -13,9 +13,12 @@ namespace MbmStore.Controllers
         {
             // Book
             Book book = new Book("J.K.Rowling","Harry Potter",11, 2001, 0005125126);
+            Book book2 = new Book("James Clavel", "Shogun", 6, 1975, 546883256);
+            Book book3 = new Book("Jon Skeet", "C# in Depth", 12, 2008, 12579893);
             List<Book> bookList = new List<Book>();
             bookList.Add(book);
-
+            bookList.Add(book2);
+            bookList.Add(book3);
 
             // MusicCD
             MusicCd musicCd = new MusicCd("Laurent Garnier", "Timeless EP", 9, 2019);
