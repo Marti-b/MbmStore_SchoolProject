@@ -8,7 +8,7 @@ namespace MbmStore.Models
 {
     public class MusicCd: Product
     {
-        public List<string> Tracks { get; } = new List<string>();
+        public List<Track> Tracks { get; } = new List<Track>();
         public string Artist { get; set; }
         public string Label { get; set; }
         public short Released { get; set; }
@@ -21,7 +21,7 @@ namespace MbmStore.Models
             Released = released;
         }
 
-        public void AddTrack(string track)
+        public void AddTrack(Track track)
         {
             //List<string> listOfTracks = new List<string>();
             Tracks.Add(track);
