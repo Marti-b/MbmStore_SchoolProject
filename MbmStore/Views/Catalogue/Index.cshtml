@@ -45,11 +45,19 @@
                     <ol>
                         @foreach (Track track in c.Tracks)
                         {
-                            <li>@track.Title (@track.Composer) 
-                                @track.Length.Minutes:@track.Length.Seconds</li>
-                     
+                            <li>
+                                @track.Title (@track.Composer)
+                                @track.Length.Minutes:@track.Length.Seconds
+                            </li>
+
+                           
                         }
                     </ol>
+                    <p><b>Total playing time: @c.GetPlayingTime()</b></p>
+                        
+                    
+
+
                 </div>
             }
         </div>

@@ -27,5 +27,17 @@ namespace MbmStore.Models
             Tracks.Add(track);
             
         }
+
+        public TimeSpan GetPlayingTime()
+        {
+            
+            TimeSpan result = new TimeSpan(0,0,0);
+            foreach (var track in Tracks)
+            {
+                result += track.Length;
+            }
+
+            return result;
+        }
     }
 }

@@ -26,10 +26,6 @@ namespace MbmStore.Controllers
             Track tr1 = new Track("Jacques In The Box", "Laurent Garnier", new TimeSpan(0,4, 56));
             Track tr2 = new Track("Our Futur (Loud Disco Mix", "Laurent Garnier", new TimeSpan(0,7, 16));
             Track tr3 = new Track("Positif (Midfield General Re-Edit", "Laurent Garnier", new TimeSpan(0,5, 29));
-            //List<Tracks> tracksList1 = new List<Tracks>();
-            //tracksList1.Add(tr1);
-            //tracksList1.Add(tr2);
-            //tracksList1.Add(tr3);
             musicCd.AddTrack(tr1);
             musicCd.AddTrack(tr2);
             musicCd.AddTrack(tr3);
@@ -72,6 +68,7 @@ namespace MbmStore.Controllers
             musicCdThree.AddTrack(cDThreeTrack5);
             musicCdThree.AddTrack(cDThreeTrack6);
             musicCdList.Add(musicCdThree);
+
 
             ViewBag.BookList = bookList;
             ViewBag.MusicCD = musicCdList;
