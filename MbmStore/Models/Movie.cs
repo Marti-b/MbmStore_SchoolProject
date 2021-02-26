@@ -5,7 +5,7 @@ using System.Web;
 
 namespace MbmStore.Models
 {
-    public class Movie
+    public class Movie : Product
     {
         // fields
         private decimal price;
@@ -13,10 +13,11 @@ namespace MbmStore.Models
         
 
         // properties
-        public string Title { get; }
+        //public string Title { get; }
         public string Director { get; set; }
 
         public string ImageFileName {
+
             set { imageFileName = value; }
             get { return imageFileName; }
         }
@@ -48,7 +49,7 @@ namespace MbmStore.Models
            
         }
 
-        public Movie(string title, string director, decimal price, string imageFileName)
+        public Movie(string title, string director, decimal price, string imageFileName): base(title, price)
         {
             Title = title;
             Director = director;

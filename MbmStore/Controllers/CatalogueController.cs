@@ -69,7 +69,13 @@ namespace MbmStore.Controllers
             musicCdThree.AddTrack(cDThreeTrack6);
             musicCdList.Add(musicCdThree);
 
+            Movie movie1 = new Movie("Joker", "Todd Phillips", 16, "joker.jfif");
+            Movie movie2 = new Movie("Split", "M. Night Shyamalan", 11, "split.jfif");
+            List<Movie> movieList = new List<Movie>();
+            movieList.Add(movie1);
+            movieList.Add(movie2);
 
+            ViewBag.MovieList = movieList;
             ViewBag.BookList = bookList;
             ViewBag.MusicCD = musicCdList;
 
