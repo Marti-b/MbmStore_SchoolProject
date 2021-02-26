@@ -12,7 +12,7 @@ namespace MbmStore.Models
         public int InvoiceId { get; set; }
         public decimal TotalPrice { get; }
         public Customer Customer { get; set; }
-        public List<OrderItem> OrderItems { get; }
+        public List<OrderItem> OrderItems { get; } = new List<OrderItem>();
 
         public Invoice(int invoiceId, DateTime orderDate, Customer customer)
         {
@@ -23,6 +23,7 @@ namespace MbmStore.Models
         public void AddOrderItem(Product product, int quantity)
         {
 
+            OrderItems.Add(new OrderItem(product, quantity));
         }
     }
 }
