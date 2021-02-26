@@ -23,7 +23,6 @@ namespace MbmStore.Models
 
             //Music Cd
             MusicCd musicCd = new MusicCd("Laurent Garnier", "Timeless EP", 9, 2019);
-            List<MusicCd> musicCdList = new List<MusicCd>();
             Track tr1 = new Track("Jacques In The Box", "Laurent Garnier", new TimeSpan(0, 4, 56));
             Track tr2 = new Track("Our Futur (Loud Disco Mix", "Laurent Garnier", new TimeSpan(0, 7, 16));
             Track tr3 = new Track("Positif (Midfield General Re-Edit", "Laurent Garnier", new TimeSpan(0, 5, 29));
@@ -76,9 +75,25 @@ namespace MbmStore.Models
             Products.Add(movie1);
             Products.Add(movie2);
 
+            // Customers
+            Customer c1 = new Customer("John", "Wick", "Sindicat", "New York", "666", new DateTime(1966, 12, 12));
+            Customer c2 = new Customer("Arnold", "schwarzenegger", "California", "Los Angeles", "5846", new DateTime(1947, 07, 30));
 
+            // Invoices
+            Invoice i1 = new Invoice(25975, new DateTime(26, 02, 2021), c1);
+            Invoice i2 = new Invoice(63579, new DateTime(11, 01, 2021), c2);
 
+            
+            //Add two OrderItem objects to the first Invoice object
+            i1.AddOrderItem(movie1, 1);
+            i1.AddOrderItem(book, 2);
+            i2.AddOrderItem(musicCdTwo, 5);
+            i2.AddOrderItem(musicCdThree, 2);
 
+            // Add each Invoice object to the Invoices list.
+            List<Invoice> invoices = new List<Invoice>();
+            invoices.Add(i1);
+            invoices.Add(i2);
         }
     }
 }

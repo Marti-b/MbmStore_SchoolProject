@@ -22,7 +22,6 @@ namespace MbmStore.Models
 
         public void AddOrderItem(Product product, int quantity)
         {
-
             OrderItems.Add(new OrderItem(product, quantity));
         }
     }
