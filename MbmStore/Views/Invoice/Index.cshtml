@@ -1,0 +1,78 @@
+﻿@using MbmStore.Models
+@addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
+*@
+<style>
+    h4 {
+        display: inline-block;
+        margin-left: 80px;
+    }
+</style>
+
+
+<a asp-controller="Home" asp-action="Index"> Back to Home page</a>
+<br />
+
+@*<div  >
+        <div style="display: inline-block; padding: 25px ">
+            Customer
+            @foreach (Invoice invoice in @ViewBag.Invoices)
+            {
+                <p>@invoice.Customer.FirstName @invoice.Customer.LastName</p>
+            }
+        </div>
+        <div style="display: inline-block; padding: 25px ">
+            Product
+            @foreach (Invoice invoice in @ViewBag.Invoices)
+            {
+                @foreach (OrderItem order in invoice.OrderItems)
+                {
+                    <p>@order.Product.Title</p>
+                }
+            }
+        </div>
+        <div>
+            Price
+        </div>
+    </div>*@
+
+@*<div style="padding: 25px">
+        <div style="display: inline-block;">
+            <h4>Customer</h4> <h4>Product</h4>  <h4>Price</h4>
+
+            <div style="display:flex;">
+                @foreach (Invoice invoice in @ViewBag.Invoices)
+                {
+                    <p>@invoice.Customer.FirstName @invoice.Customer.LastName</p>
+                }
+                <div style="display: inline-block;">
+                    @foreach (Invoice invoice in @ViewBag.Invoices)
+                    {
+                        @foreach (OrderItem order in invoice.OrderItems)
+                        {
+                            <p>@order.Product.Title</p>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+@foreach (Invoice invoice in @ViewBag.Invoices)
+{
+    <div style="display: inline-block; padding: 50px">
+        <strong>Customer:</strong><br /> @invoice.Customer.FirstName @invoice.Customer.LastName <br />
+        <strong>Product:</strong> <br />
+        @foreach (var a in invoice.OrderItems)
+        {
+            @a.Product.Title <br />
+
+        }
+
+        <strong>Price:</strong> @String.Format("{0:0.00}", invoice.TotalPrice) <br />
+    </div>
+}
+@{
+}

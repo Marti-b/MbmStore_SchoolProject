@@ -80,20 +80,21 @@ namespace MbmStore.Models
             Customer c2 = new Customer("Arnold", "schwarzenegger", "California", "Los Angeles", "5846", new DateTime(1947, 07, 30));
 
             // Invoices
-            Invoice i1 = new Invoice(25975, new DateTime(26, 02, 2021), c1);
-            Invoice i2 = new Invoice(63579, new DateTime(11, 01, 2021), c2);
+            Invoice i1 = new Invoice(25975, new DateTime(2021, 02, 26), c1);
+            Invoice i2 = new Invoice(63579, new DateTime(2021, 01, 11), c2);
 
             
-            //Add two OrderItem objects to the first Invoice object
+            //Adding two OrderItem objects to the first Invoice object
             i1.AddOrderItem(movie1, 1);
             i1.AddOrderItem(book, 2);
             i2.AddOrderItem(musicCdTwo, 5);
             i2.AddOrderItem(musicCdThree, 2);
 
-            // Add each Invoice object to the Invoices list.
-            List<Invoice> invoices = new List<Invoice>();
-            invoices.Add(i1);
-            invoices.Add(i2);
+            // Adding each Invoice object to the Invoices list.
+            
+            Invoices.Add(i1);
+            Invoices.Add(i2);
+
         }
     }
 }
