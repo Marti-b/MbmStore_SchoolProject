@@ -9,9 +9,32 @@
     img {
         width: 100px;
     }
+    
+    .nav {
+         background-color: #333;
+         overflow: hidden;
+     }
+    .nav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+    .nav a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+    .nav a.active {
+        background-color: #4CAF50;
+        color: white;
+    }
 </style>
+<div class="nav">
+    <a asp-controller="Home" asp-action="Index"> Back to Home page</a>
+</div>
 
-<a asp-controller="Home" asp-action="Index"> Back to Home page</a>
 <div style="padding: 25px">
     <h2>The Books</h2>
     @foreach (Book book in @ViewBag.Books)
@@ -49,7 +72,7 @@
             <b>Released:</b><p>@musicCd.Released</p>
             img src="Images/@musicCd.ImageFileName" alt="@musicCd.Title">
         </div>
-       
+
         <div style="padding: 10px">
             <h4> Tracks: </h4>
             <ol>

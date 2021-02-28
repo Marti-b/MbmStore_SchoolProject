@@ -3,9 +3,34 @@
     ViewData["Title"] = "Movies";
 }
 
-<h2>Index</h2>
+<style>
+    .nav {
+        background-color: #333;
+        overflow: hidden;
+    }
 
-<a asp-controller="Home" asp-action="Index">Home</a>
+        .nav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+            .nav a:hover {
+                background-color: #ddd;
+                color: black;
+            }
+
+            .nav a.active {
+                background-color: #4CAF50;
+                color: white;
+            }
+</style>
+<div class="nav">
+    <a asp-controller="Home" asp-action="Index"> Back to Home page</a>
+</div>
 
 
 <h2>@ViewBag.JungleBook.Title</h2>
@@ -14,8 +39,8 @@
 
 <h2>@ViewBag.TheDarkKnight.Title</h2>
 <p>Price: @String.Format("{0:0.00}", ViewBag.TheDarkKnight.Price)</p>
-<p><img src="Images/dark-knight"/></p>
+<p><img src="Images/dark-knight" /></p>
 
 <h2>@ViewBag.ForrestGump.Title</h2>
 <p>Price:  @String.Format("{0:0.00}", ViewBag.ForrestGump.Price)</p>
-<p><img src="Images/forrest-gump.jpg"/></p>
+<p><img src="Images/forrest-gump.jpg" /></p>
