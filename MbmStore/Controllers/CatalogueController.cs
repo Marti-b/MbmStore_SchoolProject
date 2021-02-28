@@ -17,6 +17,8 @@ namespace MbmStore.Controllers
 
             ViewBag.Books = books;
             ViewBag.MusicCds = musicCds;
+
+            return View();
         }
     }
 }

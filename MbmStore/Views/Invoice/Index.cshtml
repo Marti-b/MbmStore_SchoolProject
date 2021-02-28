@@ -9,70 +9,27 @@
         display: inline-block;
         margin-left: 80px;
     }
+    
 </style>
 
 
 <a asp-controller="Home" asp-action="Index"> Back to Home page</a>
 <br />
-
-@*<div  >
-        <div style="display: inline-block; padding: 25px ">
-            Customer
-            @foreach (Invoice invoice in @ViewBag.Invoices)
+<div style="padding: 20px">
+    @foreach (Invoice invoice in @ViewBag.Invoices)
+    {
+        <div style="display: inline-block; position: center; padding: 50px">
+            <strong>Customer:</strong><br />
+            <p> @invoice.Customer.FirstName @invoice.Customer.LastName </p><br />
+            <strong>Product & Price:</strong> <br />
+            @foreach (var a in invoice.OrderItems)
             {
-                <p>@invoice.Customer.FirstName @invoice.Customer.LastName</p>
+                <p>@a.Product.Title - @a.Product.Price$</p>
             }
+
+            <strong>Total Price:</strong> @String.Format("{0:0.00}", invoice.TotalPrice)$
         </div>
-        <div style="display: inline-block; padding: 25px ">
-            Product
-            @foreach (Invoice invoice in @ViewBag.Invoices)
-            {
-                @foreach (OrderItem order in invoice.OrderItems)
-                {
-                    <p>@order.Product.Title</p>
-                }
-            }
-        </div>
-        <div>
-            Price
-        </div>
-    </div>*@
+    }
+</div>
 
-@*<div style="padding: 25px">
-        <div style="display: inline-block;">
-            <h4>Customer</h4> <h4>Product</h4>  <h4>Price</h4>
 
-            <div style="display:flex;">
-                @foreach (Invoice invoice in @ViewBag.Invoices)
-                {
-                    <p>@invoice.Customer.FirstName @invoice.Customer.LastName</p>
-                }
-                <div style="display: inline-block;">
-                    @foreach (Invoice invoice in @ViewBag.Invoices)
-                    {
-                        @foreach (OrderItem order in invoice.OrderItems)
-                        {
-                            <p>@order.Product.Title</p>
-                        }
-                    }
-                </div>
-            </div>
-        </div>
-    </div>*@
-
-@foreach (Invoice invoice in @ViewBag.Invoices)
-{
-    <div style="display: inline-block; padding: 50px">
-        <strong>Customer:</strong><br /> @invoice.Customer.FirstName @invoice.Customer.LastName <br />
-        <strong>Product:</strong> <br />
-        @foreach (var a in invoice.OrderItems)
-        {
-            @a.Product.Title <br />
-
-        }
-
-        <strong>Price:</strong> @String.Format("{0:0.00}", invoice.TotalPrice) <br />
-    </div>
-}
-@{
-}
