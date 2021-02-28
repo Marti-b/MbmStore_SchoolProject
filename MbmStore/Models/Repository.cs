@@ -14,15 +14,15 @@ namespace MbmStore.Models
         static Repository()
         {
             //Books
-            Book book = new Book("J.K.Rowling", "Harry Potter", 11, 2001, 0005125126);
-            Book book2 = new Book("James Clavel", "Shogun", 6, 1975, 546883256);
-            Book book3 = new Book("Jon Skeet", "C# in Depth", 12, 2008, 12579893);
+            Book book = new Book("J.K.Rowling", "Harry Potter", 11, 2001, 0005125126, "harry.jpg");
+            Book book2 = new Book("James Clavel", "Shogun", 6, 1975, 546883256, "shogun.jpg");
+            Book book3 = new Book("Jon Skeet", "C# in Depth", 12, 2008, 12579893, "c#.jpg");
             Products.Add(book);
             Products.Add(book2);
             Products.Add(book3);
 
             //Music Cd
-            MusicCd musicCd = new MusicCd("Laurent Garnier", "Timeless EP", 9, 2019);
+            MusicCd musicCd = new MusicCd("Laurent Garnier", "Timeless EP", 9, 2019, "time.jpg");
             Track tr1 = new Track("Jacques In The Box", "Laurent Garnier", new TimeSpan(0, 4, 56));
             Track tr2 = new Track("Our Futur (Loud Disco Mix", "Laurent Garnier", new TimeSpan(0, 7, 16));
             Track tr3 = new Track("Positif (Midfield General Re-Edit", "Laurent Garnier", new TimeSpan(0, 5, 29));
@@ -31,7 +31,7 @@ namespace MbmStore.Models
             musicCd.AddTrack(tr3);
             Products.Add(musicCd);
 
-            MusicCd musicCdTwo = new MusicCd("Middlemist Red", "Supersonic Overdrive", 23, 2014);
+            MusicCd musicCdTwo = new MusicCd("Middlemist Red", "Supersonic Overdrive", 23, 2014, "super.jpg");
             Track cDTwoTrack1 = new Track("Age Of The Avalon", "Middlemist Red", new TimeSpan(0, 3, 59));
             Track cDTwoTrack2 = new Track("Multicolored Drive", "Middlemist Red", new TimeSpan(0, 4, 11));
             Track cDTwoTrack3 = new Track("Alas", "Middlemist Red", new TimeSpan(0, 4, 25));
@@ -54,7 +54,7 @@ namespace MbmStore.Models
             musicCdTwo.AddTrack(cDTwoTrack10);
             Products.Add(musicCdTwo);
 
-            MusicCd musicCdThree = new MusicCd("Coldplay", "Ghost Stories", 17, 2014);
+            MusicCd musicCdThree = new MusicCd("Coldplay", "Ghost Stories", 17, 2014, "ghost.png");
             Track cDThreeTrack1 = new Track("Always in My Head", "Coldplay", new TimeSpan(0, 3, 59));
             Track cDThreeTrack2 = new Track("Magic", "Coldplay", new TimeSpan(0, 3, 59));
             Track cDThreeTrack3 = new Track("Ink", "Coldplay", new TimeSpan(0, 3, 59));

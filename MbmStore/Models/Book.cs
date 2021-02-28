@@ -11,13 +11,15 @@ namespace MbmStore.Models
         public string Publisher { get; set; }
         public short Published { get; set; }
         public int ISBN { get; set; }
+        
         public Book(){}
 
-        public Book(string author, string title, decimal price, short published, int isbn) : base(title, price)
+        public Book(string author, string title, decimal price, short published, int isbn, string imageFileName) : base(title, price)
         {
             Author = author;
             ISBN = isbn;
             Published = published;
+            ImageFileName = imageFileName;
         }
     }
 }

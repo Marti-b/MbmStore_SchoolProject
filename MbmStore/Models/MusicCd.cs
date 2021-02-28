@@ -12,13 +12,13 @@ namespace MbmStore.Models
         public string Artist { get; set; }
         public string Label { get; set; }
         public short Released { get; set; }
-
         public MusicCd() { }
 
-        public MusicCd(string artist, string title, decimal price, short released) : base(title, price)
+        public MusicCd(string artist, string title, decimal price, short released, string imageFileName) : base(title, price)
         {
             Artist = artist;
             Released = released;
+            ImageFileName = imageFileName;
         }
 
         public void AddTrack(Track track)
