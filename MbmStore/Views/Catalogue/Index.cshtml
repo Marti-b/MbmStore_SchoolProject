@@ -78,7 +78,7 @@
             <ol>
                 @foreach (Track track in musicCd.Tracks)
                 {
-                    <li>@track.Title (@track.Composer) @track.Length</li>
+                <li>@track.Title (@track.Composer) @track.Length.Minutes:@track.Length.Seconds</li>
                 }
             </ol>
 
