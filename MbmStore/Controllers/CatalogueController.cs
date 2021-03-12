@@ -11,15 +11,15 @@ namespace MbmStore.Controllers
     {
         public IActionResult Index()
         {
-            List<Book> books = Repository.Products.OfType<Book>().ToList();
-            List<MusicCd> musicCds = Repository.Products.OfType<MusicCd>().ToList();
-            List<Movie> movies = Repository.Products.OfType<Movie>().ToList();
+            //List<Book> books = Repository.Products.OfType<Book>().ToList();
+            //List<MusicCd> musicCds = Repository.Products.OfType<MusicCd>().ToList();
+            //List<Movie> movies = Repository.Products.OfType<Movie>().ToList();
 
-            ViewBag.Books = books;
-            ViewBag.MusicCds = musicCds;
-            ViewBag.Movies = movies;
+            //ViewBag.Books = books;
+            //ViewBag.MusicCds = musicCds;
+            //ViewBag.Movies = movies;
 
-            return View();
+            return View(Repository.Products);
         }
     }
 }

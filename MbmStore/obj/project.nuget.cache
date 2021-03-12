@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "y3lp2YFHVFmdELgcHjzANqruZyK2egX5mZcTdq7muBU/JwV6fYwBoowncS0fClzMO989RX4C+lfXa+YdBQY9rw==",
+  "dgSpecHash": "kyR1ZvArq4TKQzxEVyR5E/C0ilobOVNUVk0WhzQnDzMK+A6Jx6wiR9NNm9zgj9dNZcZZijHC5NGqH7VK2HvTuA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\marti\\Dropbox\\!DK_Webdev\\GitHub\\MbmStore_SchoolProject\\MbmStore\\MbmStore.csproj",
+  "projectFilePath": "C:\\Users\\marti\\Dropbox\\!DK_Webdev\\GitHub\\MbmStore_SchoolProject_Balazs Martikan\\MbmStore\\MbmStore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\marti\\.nuget\\packages\\humanizer.core\\2.2.0\\humanizer.core.2.2.0.nupkg.sha512",
     "C:\\Users\\marti\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

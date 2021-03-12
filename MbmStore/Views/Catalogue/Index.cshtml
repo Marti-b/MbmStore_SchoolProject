@@ -1,9 +1,9 @@
 ﻿@using MbmStore.Models
-@model MbmStore.Models.Product
+@model IEnumerable<Product>
 @addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Products";
 }
 <style>
     img {
@@ -37,112 +37,78 @@
 
 <div style="padding: 25px">
     <h2>The Books</h2>
-    @foreach (Book book in @ViewBag.Books)
-    {
-
-        <div style="display: inline-block; padding: 50px">
-            <strong>Title:</strong> @book.Title <br />
-            <strong>Author:</strong> @book.Author <br />
-            <strong>Price:</strong> @String.Format("{0:0.00}", book.Price) <br />
-            <strong>Publisher:</strong> @book.Publisher <br />
-            <strong>ISBN:</strong> @book.ISBN <br />
-            <img src="Images/@book.ImageFileName" alt="@book.Title">
-        </div>
-
-    }
+    <table>
+        @foreach (Book book in Model.OfType<Book>().ToList())
+        {
+            <tr>
+                <td valign ="top">
+                <img src ="/Images/@book.ImageFileName" alt="@book.Title" style="width:100px" />
+                    </td>
+            <td valign ="top" style="width:250px">
+                <div style="display: inline-block; padding: 50px">
+                    <strong>Title:</strong> @book.Title <br />
+                    <strong>Author:</strong> @book.Author <br />
+                    <strong>Price:</strong> @String.Format("{0:0.00}", book.Price) <br />
+                    <strong>Publisher:</strong> @book.Publisher <br />
+                    <strong>ISBN:</strong> @book.ISBN <br />
+                    
+                </div>
+            </td>
+            </tr>
+        }
+        </table>
+    
 
     <h2>The Movies</h2>
-    @foreach (Movie movie in @ViewBag.Movies)
-    {
-        <div style="display: inline-block; padding: 50px">
-            <strong>Title:</strong> @movie.Title <br />
-            <strong>Director:</strong> @movie.Director <br />
-            <strong>Price:</strong> @movie.Price <br />
-            <img src="Images/@movie.ImageFileName" alt="@movie.Title">
-        </div>
-    }
+    <table>
+        @foreach (Movie movie in Model.OfType<Movie>().ToList())
+        {
+            <tr>
+                <td valign ="top">
+                    <img src ="/Images/@movie.ImageFileName" alt="@movie.Title" style="width:100px" />
+                </td>
+                <td valign ="top" style="width:250px">
+                    <div>
+                        <strong>Title:</strong> @movie.Title <br />
+                        <strong>Director:</strong> @movie.Director <br />
+                        <strong>Price:</strong> @movie.Price <br />
+                
+                    </div>
+                </td>
+            </tr>
+        }
+    </table>
 
     <h2>The Music Cds</h2>
-    @foreach (MusicCd musicCd in @ViewBag.MusicCds)
-    {
-        <div style="display: inline-block; padding: 50px">
-            <b>Album:</b><p>@musicCd.Title</p>
-            <b>Artist:</b><p>@musicCd.Artist</p>
-            <b>Price:</b><p>@musicCd.Price</p>
-            <b>Released:</b><p>@musicCd.Released</p>
-            img src="Images/@musicCd.ImageFileName" alt="@musicCd.Title">
-        </div>
+    <table >
+      
+        @foreach (MusicCd musicCd in Model.OfType<MusicCd>().ToList())
+        {
+            <tr>
+                <td valign ="top">
+                    <img src ="/Images/@musicCd.ImageFileName" alt="@musicCd.Title" style="width:100px" />
+                </td>
+                <td valign ="top" style="width:250px">
+                <div>
+                    <b>Album:</b><p>@musicCd.Title</p>
+                    <b>Artist:</b><p>@musicCd.Artist</p>
+                    <b>Price:</b><p>@musicCd.Price</p>
+                    <b>Released:</b><p>@musicCd.Released</p>
+                </div>
+                
+                <div>
+                <h4> Tracks: </h4>
+                <ol>
+                    @foreach (Track track in musicCd.Tracks)
+                    {
+                        <li>@track.Title (@track.Composer) @track.Length.Minutes:@track.Length.Seconds</li>
+                    }
+                </ol>
 
-        <div style="padding: 10px">
-            <h4> Tracks: </h4>
-            <ol>
-                @foreach (Track track in musicCd.Tracks)
-                {
-                <li>@track.Title (@track.Composer) @track.Length.Minutes:@track.Length.Seconds</li>
-                }
-            </ol>
-
-        </div>
-    }
+            </div>
+            </tr>
+        }
+    </table>
+    
 </div>
-@*<div class="col-md">
-        @foreach (Book b in @ViewBag.Booklist)
-        {
-            <div style="display: inline-block; padding: 50px">
-                <b>Author:</b><p>@b.Author</p>
-                <b>Title:</b><p>@b.Title</p>
-                <b>Price:</b><p>@b.Price</p>
-                <b>Publisher:</b><p>@b.Publisher</p>
-                <b>ISBN:</b><p>@b.ISBN</p>
-            </div>
-        }
-    </div>
-    <br />
-    <hr />
-    <div class="container">
-        <div class="row">
-            <div>
-                >
-                @foreach (var c in @ViewBag.MusicCD)
-                {
-                    <div style="width: 600px; float:left; height:300px; background:gray; margin:10px">
-                        <b>Album:</b><p>@c.Title</p>
-                        <b>Artist:</b><p>@c.Artist</p>
-                        <b>Price:</b><p>@c.Price</p>
-                        <b>Released:</b><p>@c.Released</p>
-                    </div>
 
-
-                    <div style="width: 600px; float:left; height:300px; background: yellow; margin:10px">
-                        <h3> List of tracks:</h3>
-                        <ol>
-                            @foreach (Track track in c.Tracks)
-                            {
-                                <li>
-                                    @track.Title (@track.Composer)
-                                    @track.Length.Minutes:@track.Length.Seconds
-                                </li>
-                            }
-
-                        </ol>
-                        <p><b>Total playing time: @c.GetPlayingTime()</b></p>
-
-
-
-                    </div>
-                }
-            </div>
-
-        </div>
-    </div>
-    <div>
-        @foreach (Movie m in @ViewBag.MovieList)
-        {
-            <div style="width: 600px; float:left; height:300px; background:gray; margin:10px">
-            <b>Title:</b><p>@m.Title</p>
-            <b>Artist:</b><p>@m.Director</p>
-            <b>Price:</b><p>@m.Price</p>
-            <img src="Images/@m.ImageFileName"/>
-            </div>
-        }
-    </div>*@
