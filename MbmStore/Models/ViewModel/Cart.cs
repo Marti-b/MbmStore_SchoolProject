@@ -34,11 +34,12 @@ namespace MbmStore.Models
         {
             lineCollection.RemoveAll(item => item.Product.ProductID == product.ProductID);
         }
-
-        public decimal  ComputeTotalValue() =>
-        
+        //Linq sytanx, return total price for all products in the cart
+        public decimal ComputeTotalValue() =>
             lineCollection.Sum(e => e.Quantity * e.Product.Price);
-    
+
+        public virtual void Clear() => lineCollection.Clear();
+        public List<CartLine> Lines => lineCollection;
     }
 
     public class CartLine
