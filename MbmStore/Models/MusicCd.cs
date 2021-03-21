@@ -14,8 +14,9 @@ namespace MbmStore.Models
         public short Released { get; set; }
         public MusicCd() { }
 
-        public MusicCd(string artist, string title, decimal price, short released, string imageFileName) : base(title, price)
+        public MusicCd(string artist, string title, decimal price, short released, string imageFileName, int productID) : base(productID,title, price)
         {
+            
             Artist = artist;
             Released = released;
             ImageFileName = imageFileName;

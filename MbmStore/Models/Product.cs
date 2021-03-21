@@ -12,8 +12,9 @@ namespace MbmStore.Models
         public decimal Price { get; set; }
         public string ImageFileName { get; set; }
         public Product() { }
-        public Product(string title, decimal price)
+        public Product(int productID ,string title, decimal price)
         {
+            ProductID = productID;
             Title = title;
             Price = price;
         }
