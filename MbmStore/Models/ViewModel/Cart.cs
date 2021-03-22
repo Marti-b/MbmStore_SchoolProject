@@ -10,8 +10,8 @@ namespace MbmStore.Models
     {
         private List<CartLine> lineCollection = new List<CartLine>();
         public decimal TotalPrice { get; set; }
-        public List<CartLine> LineCollection { get; }
 
+        public List<CartLine> Lines => lineCollection;
         public virtual void AddItem(Product product, int quantity)
         {
             // Checking to see if the product is already in the cart
@@ -30,7 +30,7 @@ namespace MbmStore.Models
             }
         }
 
-        public virtual void RemoveItem(Product product)
+        public virtual void RemoveLines(Product product)
         {
             lineCollection.RemoveAll(item => item.Product.ProductID == product.ProductID);
         }
@@ -39,7 +39,7 @@ namespace MbmStore.Models
             lineCollection.Sum(e => e.Quantity * e.Product.Price);
 
         public virtual void Clear() => lineCollection.Clear();
-        public List<CartLine> Lines => lineCollection;
+     
     }
 
     public class CartLine
