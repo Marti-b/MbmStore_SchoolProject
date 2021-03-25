@@ -7,31 +7,31 @@
     ViewData["Title"] = "Products";
 }
 @*<style>
-    img {
-        width: 100px;
-    }
-    
-    .nav {
-         background-color: #333;
-         overflow: hidden;
-     }
-    .nav a {
-        float: left;
-        color: #f2f2f2;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        font-size: 17px;
-    }
-    .nav a:hover {
-        background-color: #ddd;
-        color: black;
-    }
-    .nav a.active {
-        background-color: #4CAF50;
-        color: white;
-    }
-</style>*@
+        img {
+            width: 100px;
+        }
+
+        .nav {
+             background-color: #333;
+             overflow: hidden;
+         }
+        .nav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+        .nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .nav a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>*@
 <div class="nav">
     <a asp-controller="Home" asp-action="Index"> Back to Home page</a>
 </div>
@@ -42,10 +42,10 @@
         @foreach (Book book in Model.OfType<Book>().ToList())
         {
             <tr>
-                <td valign ="top">
-                    <img src ="/Images/@book.ImageFileName" alt="@book.Title" style="width:100px" />
+                <td valign="top">
+                    <img src="/Images/@book.ImageFileName" alt="@book.Title" style="width:100px" />
                 </td>
-                <td valign ="top" style="width:250px">
+                <td valign="top" style="width:250px">
                     <div style="display: inline-block; padding: 50px">
                         <strong>Title:</strong> @book.Title <br />
                         <strong>Author:</strong> @book.Author <br />
@@ -58,8 +58,8 @@
                     <div>
                         <form id="@book.ProductID" asp-action="AddToCart" asp-controller="Cart" method="post">
                             <input type="hidden" name="ProductID" value="@book.ProductID" />
-                            <input type="hidden" name="returnUrl" 
-                                   value="@ViewContext.HttpContext.Request.PathAndQuery()"/>
+                            <input type="hidden" name="returnUrl"
+                                   value="@ViewContext.HttpContext.Request.PathAndQuery()" />
                             <span class="card-text p-1">
                                 <button type="submit" class="btn btn-success btn-sm pull-right" style="float: right">
                                     Add To Cart
@@ -76,79 +76,79 @@
     <table>
         @foreach (Movie movie in Model.OfType<Movie>().ToList())
         {
-        <tr>
-            <td valign="top">
-                <img src="/Images/@movie.ImageFileName" alt="@movie.Title" style="width:100px" />
-            </td>
-            <td valign="top" style="width:250px">
-                <div>
-                    <strong>Title:</strong> @movie.Title <br />
-                    <strong>Director:</strong> @movie.Director <br />
-                    <strong>Price:</strong> @movie.Price <br />
+            <tr>
+                <td valign="top">
+                    <img src="/Images/@movie.ImageFileName" alt="@movie.Title" style="width:100px" />
+                </td>
+                <td valign="top" style="width:250px">
+                    <div>
+                        <strong>Title:</strong> @movie.Title <br />
+                        <strong>Director:</strong> @movie.Director <br />
+                        <strong>Price:</strong> @movie.Price <br />
 
-                </div>
-            </td>
-            <td valign="top" style="width: 250px">
-                <div>
-                    <form id="@movie.ProductID" asp-action="AddToCart" asp-controller="Cart" method="post">
-                        <input type="hidden" name="ProductID" value="@movie.ProductID" />
-                        <input type="hidden" name="returnUrl"
-                               value="@ViewContext.HttpContext.Request.PathAndQuery()" />
-                        <span class="card-text p-1">
-                            <button type="submit" class="btn btn-success btn-sm pull-right" style="float: right">
-                                Add To Cart
-                            </button>
-                        </span>
-                    </form>
-                </div>
-            </td>
-        </tr>
+                    </div>
+                </td>
+                <td valign="top" style="width: 250px">
+                    <div>
+                        <form id="@movie.ProductID" asp-action="AddToCart" asp-controller="Cart" method="post">
+                            <input type="hidden" name="ProductID" value="@movie.ProductID" />
+                            <input type="hidden" name="returnUrl"
+                                   value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+                            <span class="card-text p-1">
+                                <button type="submit" class="btn btn-success btn-sm pull-right" style="float: right">
+                                    Add To Cart
+                                </button>
+                            </span>
+                        </form>
+                    </div>
+                </td>
+            </tr>
         }
     </table>
 
     <h2>The Music Cds</h2>
-    <table >
-      
+    <table>
+
         @foreach (MusicCd musicCd in Model.OfType<MusicCd>().ToList())
         {
-        <tr>
-            <td valign="top">
-                <img src="/Images/@musicCd.ImageFileName" alt="@musicCd.Title" style="width:100px" />
-            </td>
-            <td valign="top" style="width:250px">
-                <div>
-                    <b>Album:</b><p>@musicCd.Title</p>
-                    <b>Artist:</b><p>@musicCd.Artist</p>
-                    <b>Price:</b><p>@musicCd.Price</p>
-                    <b>Released:</b><p>@musicCd.Released</p>
-                </div>
-                <div>
-                    <h4> Tracks: </h4>
-                    <ol>
-                        @foreach (Track track in musicCd.Tracks)
-                        {
-                            <li>@track.Title (@track.Composer) @track.Length.Minutes:@track.Length.Seconds</li>
-                        }
-                    </ol>
+            <tr>
+                <td valign="top">
+                    <img src="/Images/@musicCd.ImageFileName" alt="@musicCd.Title" style="width:100px" />
+                </td>
+                <td valign="top" style="width:250px">
+                    <div>
+                        <b>Album:</b><p>@musicCd.Title</p>
+                        <b>Artist:</b><p>@musicCd.Artist</p>
+                        <b>Price:</b><p>@musicCd.Price</p>
+                        <b>Released:</b><p>@musicCd.Released</p>
+                    </div>
+                    <div>
+                        <h4> Tracks: </h4>
+                        <ol>
+                            @foreach (Track track in musicCd.Tracks)
+                            {
+                                <li>@track.Title (@track.Composer) @track.Length.Minutes:@track.Length.Seconds</li>
+                            }
+                        </ol>
 
-                </div>
-            <td valign="top" style="width: 250px">
-                <div>
-                    <form id="@musicCd.ProductID" asp-action="AddToCart" asp-controller="Cart" method="post">
-                        <input type="hidden" name="ProductID" value="@musicCd.ProductID" />
-                        <input type="hidden" name="returnUrl"
-                               value="@ViewContext.HttpContext.Request.PathAndQuery()" />
-                        <span class="card-text p-1">
-                            <button type="submit" class="btn btn-success btn-sm pull-right" style="float: right">
-                                Add To Cart
-                            </button>
-                        </span>
-                    </form>
-                </div>
-            </td>
-        </tr>
+                    </div>
+                <td valign="top" style="width: 250px">
+                    <div>
+                        <form id="@musicCd.ProductID" asp-action="AddToCart" asp-controller="Cart" method="post">
+                            <input type="hidden" name="ProductID" value="@musicCd.ProductID" />
+                            <input type="hidden" name="returnUrl"
+                                   value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+                            <span class="card-text p-1">
+                                <button type="submit" class="btn btn-success btn-sm pull-right" style="float: right">
+                                    Add To Cart
+                                </button>
+                            </span>
+                        </form>
+                    </div>
+                </td>
+            </tr>
         }
     </table>
-    
+
 </div>
 

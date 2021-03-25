@@ -5,18 +5,23 @@ using System.Linq;
 using System.Threading.Tasks;
 using MbmStore.Models;
 using MbmStore.Infrastructure;
+using MbmStore.Models.ViewModel;
 
 namespace MbmStore.Controllers
 {
     public class CartController : Controller
     {
-        public IActionResult Index()
+        public ViewResult Index(string returnUrl)
         {
-            return View();
+            return View(new CartIndexViewModel
+            {
+                Cart = GetCart(),
+                ReturnUrl = returnUrl
+            });
         }
-        public RedirectToActionResult AddToCart(int id, string returnUrl)
+        public RedirectToActionResult AddToCart(int productID, string returnUrl)
         {
-            Product product = Repository.Products.FirstOrDefault(p => p.ProductID == id);
+            Product product = Repository.Products.FirstOrDefault(p => p.ProductID == productID);
 
             if (product != null)
             {
@@ -24,7 +29,7 @@ namespace MbmStore.Controllers
                 cart.AddItem(product, 1);
                 SaveCart(cart);
             }
-            return RedirectToAction("Index", new {returnUrl});
+            return RedirectToAction("Index", new { returnUrl });
         }
 
         public RedirectToActionResult RemoveFromCart(int id, string returnUrl)
@@ -35,13 +40,13 @@ namespace MbmStore.Controllers
                 Cart cart = GetCart();
                 cart.RemoveLines(product);
             }
-            return RedirectToAction("Index", new {returnUrl});
+            return RedirectToAction("Index", new { returnUrl });
         }
 
         private Cart GetCart()
         {
             Cart cart = HttpContext.Session.GetJson<Cart>("Cart");
-            if (cart != null)
+            if (cart == null)
             {
                 cart = new Cart();
                 HttpContext.Session.SetJson("Cart", cart);

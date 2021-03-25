@@ -16,13 +16,12 @@ namespace MbmStore.Models
         {
             // Checking to see if the product is already in the cart
             CartLine item = lineCollection
-                .Where(p => p.Product.ProductID == product.ProductID)
-                .FirstOrDefault();
+                .FirstOrDefault(p => p.Product.ProductID == product.ProductID);
 
             // Add product or update quantity
             if (item == null)
             {
-                lineCollection.Add(new CartLine(item.Product = product, item.Quantity = quantity));
+                lineCollection.Add(new CartLine { Product = product, Quantity = quantity });
             }
             else
             {
@@ -39,17 +38,13 @@ namespace MbmStore.Models
             lineCollection.Sum(e => e.Quantity * e.Product.Price);
 
         public virtual void Clear() => lineCollection.Clear();
-     
+
     }
 
     public class CartLine
     {
         public Product Product { get; set; }
         public int Quantity { get; set; }
-        public CartLine(Product product, int quantity)
-        {
-            Product = product;
-            Quantity = quantity;
-        }
+        
     }
 }
