@@ -1,8 +1,12 @@
+using MbmStore.Models;
+using MbmStore.Models.ViewModel;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MbmStore.Models.ViewModels;
+using Microsoft.AspNetCore.Http;
 
 namespace Lesson01
 {
@@ -17,9 +21,12 @@ namespace Lesson01
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddControllersWithViews();
             services.AddMemoryCache();
             services.AddSession();
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
