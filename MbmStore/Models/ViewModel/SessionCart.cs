@@ -32,7 +32,7 @@ namespace MbmStore.Models.ViewModel
 
         public override void RemoveLine(Product product)
         {
-            base.RemoveLines(product);
+            base.RemoveLine(product);
             Session.SetJson("Cart", this);
         }
 

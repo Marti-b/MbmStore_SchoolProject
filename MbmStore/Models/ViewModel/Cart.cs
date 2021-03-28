@@ -29,7 +29,7 @@ namespace MbmStore.Models
             }
         }
 
-        public virtual void RemoveLines(Product product)
+        public virtual void RemoveLine(Product product)
         {
             lineCollection.RemoveAll(item => item.Product.ProductID == product.ProductID);
         }
