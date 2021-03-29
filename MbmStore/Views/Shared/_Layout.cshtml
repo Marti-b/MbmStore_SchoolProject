@@ -3,11 +3,28 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
+    <title>MbmStore</title>
+    <link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/lib/twitter-bootstrap/js/bootstrap.js"></script>
 </head>
 <body>
-    <div>
-        @RenderBody()
+<nav class="nav navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">MusicBookMovie Store</a>
+</nav>
+<div class="container">
+    <div class="row">
+        <div id="categories" class="col-md-3">
+            Put something useful here later
+        </div>
+        <div class="col-md-9">
+            @RenderBody()
+        </div>
     </div>
+</div>
+    
 </body>
 </html>

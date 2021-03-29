@@ -460,3 +460,4 @@ C:\Users\marti\Dropbox\!DK_Webdev\GitHub\MbmStore_SchoolProject_Balazs Martikan\
 C:\Users\marti\Dropbox\!DK_Webdev\GitHub\MbmStore_SchoolProject_Balazs Martikan\MbmStore\obj\Debug\net5.0\MbmStore.genruntimeconfig.cache
 C:\Users\marti\Dropbox\!DK_Webdev\GitHub\MbmStore_SchoolProject_Balazs Martikan\MbmStore\obj\Debug\net5.0\Razor\Views\Cart\Index.cshtml.g.cs
 C:\Users\marti\Dropbox\!DK_Webdev\GitHub\MbmStore_SchoolProject_Balazs Martikan\MbmStore\obj\Debug\net5.0\Razor\_ViewImports.cshtml.g.cs
+C:\Users\marti\Dropbox\!DK_Webdev\GitHub\MbmStore_SchoolProject_Balazs Martikan\MbmStore\bin\Debug\net5.0\libman.json
