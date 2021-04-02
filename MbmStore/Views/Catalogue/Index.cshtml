@@ -11,30 +11,41 @@
 </div>
 
 <div style="padding: 25px">
-    <h2>The Books</h2>
-    <table>
-        @foreach (Book book in Model.OfType<Book>().ToList())
-        {
-          @await Html.PartialAsync("_ProductSummaryBook", book);
-        }
-    </table>
+    @if (Model.OfType<Book>().ToList().Count > 0)
+    {
+        <h2>The Books</h2>
+        <table>
+            @foreach (Book book in Model.OfType<Book>().ToList())
+            {
+                @await Html.PartialAsync("_ProductSummaryBook", book);
+            }
+        </table>
+    }
 
-    <h2>The Movies</h2>
-    <table>
-        @foreach (Movie movie in Model.OfType<Movie>().ToList())
-        {
-            @await Html.PartialAsync("_ProductSummaryMovie", movie);
-        }
-    </table>
+    @if (Model.OfType<Movie>().ToList().Count > 0)
+    {
+        <h2>The Movies</h2>
+        <table>
+            @foreach (Movie movie in Model.OfType<Movie>().ToList())
+            {
+                @await Html.PartialAsync("_ProductSummaryMovie", movie)
+                ;
+            }
+        </table>
+    }
+       
+    @if (Model.OfType<Movie>().ToList().Count > 0)
+    {
+        <h2>The Music Cds</h2>
+        <table>
 
-    <h2>The Music Cds</h2>
-    <table>
-
-        @foreach (MusicCd musicCd in Model.OfType<MusicCd>().ToList())
-        {
-            @await Html.PartialAsync("_ProductSummaryMusicCd", musicCd)
-        }
-    </table>
+            @foreach (MusicCd musicCd in Model.OfType<MusicCd>().ToList())
+            {
+                @await Html.PartialAsync("_ProductSummaryMusicCd", musicCd)
+            }
+        </table>
+    }
+   
 
 </div>
 

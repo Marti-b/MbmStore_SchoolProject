@@ -9,17 +9,14 @@ namespace MbmStore.Controllers
 {
     public class CatalogueController : Controller
     {
-        public IActionResult Index()
+        public int PageSize = 4;
+        public IActionResult Index(int page = 1)
         {
-            //List<Book> books = Repository.Products.OfType<Book>().ToList();
-            //List<MusicCd> musicCds = Repository.Products.OfType<MusicCd>().ToList();
-            //List<Movie> movies = Repository.Products.OfType<Movie>().ToList();
 
-            //ViewBag.Books = books;
-            //ViewBag.MusicCds = musicCds;
-            //ViewBag.Movies = movies;
-
-            return View(Repository.Products);
+            return View(Repository.Products
+                .OrderBy(p => p.ProductID)
+                .Skip((page - 1) * PageSize)
+                .Take(PageSize));
         }
     }
 }
