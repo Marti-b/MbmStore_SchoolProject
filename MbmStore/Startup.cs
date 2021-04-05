@@ -5,10 +5,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
 using Microsoft.AspNetCore.Http;
 
-namespace Lesson01
+namespace MbmStore
 {
     public class Startup
     {
@@ -26,7 +25,6 @@ namespace Lesson01
             services.AddControllersWithViews();
             services.AddMemoryCache();
             services.AddSession();
-
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -48,6 +46,11 @@ namespace Lesson01
             app.UseRouting();
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    name: "pagination",
+                    pattern: "Catalogue/Page{page}",
+                    defaults: new { Controller = "Catalogue", action = "Index" });
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

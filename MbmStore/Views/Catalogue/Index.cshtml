@@ -1,5 +1,5 @@
 ﻿@using MbmStore.Models
-@model IEnumerable<Product>
+@model ProductsListViewModel
 @using MbmStore.Infrastructure;
 @addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"
 
@@ -11,41 +11,41 @@
 </div>
 
 <div style="padding: 25px">
-    @if (Model.OfType<Book>().ToList().Count > 0)
+    @if (Model.Products.OfType<Book>().ToList().Count > 0)
     {
         <h2>The Books</h2>
         <table>
-            @foreach (Book book in Model.OfType<Book>().ToList())
+            @foreach (Book book in Model.Products.OfType<Book>().ToList())
             {
                 @await Html.PartialAsync("_ProductSummaryBook", book);
             }
         </table>
     }
 
-    @if (Model.OfType<Movie>().ToList().Count > 0)
+    @if (Model.Products.OfType<Movie>().ToList().Count > 0)
     {
         <h2>The Movies</h2>
         <table>
-            @foreach (Movie movie in Model.OfType<Movie>().ToList())
+            @foreach (Movie movie in Model.Products.OfType<Movie>().ToList())
             {
                 @await Html.PartialAsync("_ProductSummaryMovie", movie)
                 ;
             }
         </table>
     }
-       
-    @if (Model.OfType<Movie>().ToList().Count > 0)
+
+    @if (Model.Products.ToList().Count > 0)
     {
         <h2>The Music Cds</h2>
         <table>
 
-            @foreach (MusicCd musicCd in Model.OfType<MusicCd>().ToList())
+            @foreach (MusicCd musicCd in Model.Products.OfType<MusicCd>().ToList())
             {
                 @await Html.PartialAsync("_ProductSummaryMusicCd", musicCd)
             }
         </table>
     }
-   
-
+    <div page-model="@Model.PagingInfo" page-action="Index"></div>
 </div>
+
 

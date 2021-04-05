@@ -36,9 +36,10 @@ namespace MbmStore.Controllers
             return RedirectToAction("Index", new { returnUrl });
         }
 
-        public RedirectToActionResult RemoveFromCart(int id, string returnUrl)
+        public RedirectToActionResult RemoveFromCart(int productID, string returnUrl)
         {
-            Product product = Repository.Products.Find(p => p.ProductID == id);
+            Product product = Repository.Products.Find(p => 
+                p.ProductID == productID);
             if (product != null)
             {
                 cart.RemoveLine(product);

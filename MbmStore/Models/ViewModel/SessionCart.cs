@@ -16,12 +16,12 @@ namespace MbmStore.Models.ViewModel
         {
             ISession session = services.GetRequiredService<HttpContextAccessor>()?
                 .HttpContext.Session;
-            SessionCart cart = session?.GetJson<SessionCart>("Cart") ??
+            SessionCart cart = session?.GetJson<SessionCart>("Cart")??
                                new SessionCart();
             cart.Session = session;
             return cart;
         }
-        [JsonIgnore] 
+        [JsonIgnore]
         public ISession Session { get; set; }
 
         public override void AddItem(Product product, int quantity)
@@ -39,6 +39,7 @@ namespace MbmStore.Models.ViewModel
         public override void Clear()
         {
             base.Clear();
+            Session.Remove("Cart");
         }
     }
 }
