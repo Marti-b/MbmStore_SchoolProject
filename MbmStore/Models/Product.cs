@@ -11,6 +11,7 @@ namespace MbmStore.Models
         public string Title { get; set; }
         public decimal Price { get; set; }
         public string ImageFileName { get; set; }
+        public string Category { get; set; }
         public Product() { }
         public Product(int productID ,string title, decimal price)
         {

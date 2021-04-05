@@ -15,8 +15,11 @@ namespace MbmStore.Models
         {
             //Books
             Book book = new Book("J.K.Rowling", "Harry Potter", 11, 2001, 0005125126, "harry.jpg", 1001);
+            book.Category = "Book";
             Book book2 = new Book("James Clavel", "Shogun", 6, 1975, 546883256, "shogun.jpg", 1002);
+            book2.Category = "Book";
             Book book3 = new Book("Jon Skeet", "C# in Depth", 12, 2008, 12579893, "c#.jpg", 1003);
+            book3.Category = "Book";
             Products.Add(book);
             Products.Add(book2);
             Products.Add(book3);
@@ -29,9 +32,11 @@ namespace MbmStore.Models
             musicCd.AddTrack(tr1);
             musicCd.AddTrack(tr2);
             musicCd.AddTrack(tr3);
+            musicCd.Category = "Music";
             Products.Add(musicCd);
 
             MusicCd musicCdTwo = new MusicCd("Middlemist Red", "Supersonic Overdrive", 23, 2014, "super.jpg", 2002);
+            musicCdTwo.Category = "Music";
             Track cDTwoTrack1 = new Track("Age Of The Avalon", "Middlemist Red", new TimeSpan(0, 3, 59));
             Track cDTwoTrack2 = new Track("Multicolored Drive", "Middlemist Red", new TimeSpan(0, 4, 11));
             Track cDTwoTrack3 = new Track("Alas", "Middlemist Red", new TimeSpan(0, 4, 25));
@@ -55,6 +60,7 @@ namespace MbmStore.Models
             Products.Add(musicCdTwo);
 
             MusicCd musicCdThree = new MusicCd("Coldplay", "Ghost Stories", 17, 2014, "ghost.png",2003);
+            musicCdThree.Category = "Music";
             Track cDThreeTrack1 = new Track("Always in My Head", "Coldplay", new TimeSpan(0, 3, 59));
             Track cDThreeTrack2 = new Track("Magic", "Coldplay", new TimeSpan(0, 3, 59));
             Track cDThreeTrack3 = new Track("Ink", "Coldplay", new TimeSpan(0, 3, 59));
@@ -71,7 +77,9 @@ namespace MbmStore.Models
 
             //Movies
             Movie movie1 = new Movie("Joker", "Todd Phillips", 16, "joker.jfif" ,3001);
+            movie1.Category = "Movie";
             Movie movie2 = new Movie("Split", "M. Night Shyamalan", 11, "split.jfif", 3002);
+            movie2.Category = "Movie";
             Products.Add(movie1);
             Products.Add(movie2);
 
