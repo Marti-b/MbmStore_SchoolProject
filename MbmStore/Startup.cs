@@ -6,7 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Http;
-
+using Newtonsoft.Json;
 namespace MbmStore
 {
     public class Startup
@@ -46,6 +46,42 @@ namespace MbmStore
             app.UseRouting();
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    name: null,
+                    pattern: "Catalogue/{category}/Page{page:int}",
+                    defaults: new
+                    {
+                        controller = "Catalogue",
+                        action = "Index"
+                    }); 
+                endpoints.MapControllerRoute(
+                    name: null,
+                    pattern: "Page{page:int}",
+                    defaults: new
+                    {
+                        controller = "Catalogue",
+                        action = "Index",
+                        productPage = 1
+                    });
+                endpoints.MapControllerRoute(
+                    name: null,
+                    pattern: "Catalogue/{category}",
+                    defaults: new
+                    {
+                        controller = "Catalogue",
+                        action = "Index",
+                        productPage = 1
+                    });
+                endpoints.MapControllerRoute(
+                    name: null,
+                    pattern: "",
+                    defaults: new
+                    {
+                        controller = "Catalogue",
+                        action = "Index",
+                        productPage = 1
+                    });
+
                 endpoints.MapControllerRoute(
                     name: "pagination",
                     pattern: "Catalogue/Page{page}",
