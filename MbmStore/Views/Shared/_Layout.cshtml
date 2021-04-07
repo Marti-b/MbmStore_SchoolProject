@@ -2,7 +2,8 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
@@ -11,20 +12,17 @@
     <link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
     <script src="~/lib/twitter-bootstrap/js/bootstrap.js"></script>
 </head>
-<body>
-<nav class="nav navbar-expand-lg navbar-dark bg-dark">
+<body class="container">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">MusicBookMovie Store</a>
 </nav>
-<div class="container">
-    <div class="row">
-        <div id="categories" class="col-md-3">
-            Put something useful here later
-        </div>
-        <div class="col-md-9">
-            @RenderBody()
-        </div>
+<div class="row panel">
+    <div id="categories" class="col-3">
+        @await Component.InvokeAsync("NavigationMenu")
+    </div>
+    <div class="col-9">
+        @RenderBody()
     </div>
 </div>
-    
 </body>
 </html>
