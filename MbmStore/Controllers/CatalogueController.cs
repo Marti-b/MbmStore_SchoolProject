@@ -26,7 +26,10 @@ namespace MbmStore.Controllers
                 {
                     CurrentPage = page,
                     ItemsPerPage = PageSize,
-                    TotalItems = Repository.Products.Count()
+                    TotalItems = category == null ?
+                        Repository.Products.Count() :
+                        Repository.Products.Where(e =>
+                            e.Category == category).Count()
                 }, 
                 CurrentCategory = category
             };

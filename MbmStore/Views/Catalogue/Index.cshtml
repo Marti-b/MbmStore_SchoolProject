@@ -29,12 +29,12 @@
             @foreach (Movie movie in Model.Products.OfType<Movie>().ToList())
             {
                 @await Html.PartialAsync("_ProductSummaryMovie", movie);
-                
+
             }
         </table>
     }
 
-    @if (Model.Products.ToList().Count > 0)
+    @if (Model.Products.OfType<MusicCd>().ToList().Count > 0)
     {
         <h2>The Music Cds</h2>
         <table>
