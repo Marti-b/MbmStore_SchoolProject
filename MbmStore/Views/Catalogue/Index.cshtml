@@ -6,50 +6,40 @@
 @{
     ViewData["Title"] = "Products";
 }
-<div class="nav">
-    <a asp-controller="Home" asp-action="Index"> Back to Home page</a>
-</div>
+<div class="products" style="clear:both">
 
-<div style="padding: 25px">
     @if (Model.Products.OfType<Book>().ToList().Count > 0)
     {
+
         <h2>The Books</h2>
-        <table>
-            @foreach (Book book in Model.Products.OfType<Book>().ToList())
-            {
-                @await Html.PartialAsync("_ProductSummaryBook", book);
-            }
-        </table>
-    }
+        @foreach (Book book in Model.Products.OfType<Book>().ToList())
+        {
+            @await Html.PartialAsync("_ProductSummaryBook", book);
+        }}
+
+
+    @if (Model.Products.OfType<MusicCd>().ToList().Count > 0)
+    {
+        <h2>The CDs</h2>
+        @foreach (MusicCd cd in Model.Products.OfType<MusicCd>().ToList())
+        {
+            @await Html.PartialAsync("_ProductSummaryMusicCD", cd);
+        }}
+
+
 
     @if (Model.Products.OfType<Movie>().ToList().Count > 0)
     {
         <h2>The Movies</h2>
-        <table>
-            @foreach (Movie movie in Model.Products.OfType<Movie>().ToList())
-            {
-                @await Html.PartialAsync("_ProductSummaryMovie", movie);
+        @foreach (Movie movie in Model.Products.OfType<Movie>().ToList())
+        {
+            @await Html.PartialAsync("_ProductSummaryMovie", movie);
+        }}
 
-            }
-        </table>
-    }
-
-    @if (Model.Products.OfType<MusicCd>().ToList().Count > 0)
-    {
-        <h2>The Music Cds</h2>
-        <table>
-
-            @foreach (MusicCd musicCd in Model.Products.OfType<MusicCd>().ToList())
-            {
-                @await Html.PartialAsync("_ProductSummaryMusicCd", musicCd)
-            }
-        </table>
-    }
-    <div page-model="@Model.PagingInfo" page-action="Index"
-         page-classes-enabled="true"
-         page-class="btn" page-class-normal="btn-secondary"
-         page-class-selected="btn-primary" page-url-category="@Model.CurrentCategory"
-         class="btn-group pull-right m-1">></div>
 </div>
 
 
+<div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true" page-class="btn" page-class-normal="btn-secondary"
+     page-class-selected="btn-primary" page-url-category="@Model.CurrentCategory"
+     class="btn-group pull-right m-1">
+</div>
