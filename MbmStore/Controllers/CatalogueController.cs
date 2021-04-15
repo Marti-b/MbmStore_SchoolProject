@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MbmStore.Models;
-using MbmStore.Models.ViewModel;
+using MbmStore.Models.ViewModels;
 
 namespace MbmStore.Controllers
 {

@@ -1,5 +1,5 @@
 using MbmStore.Models;
-using MbmStore.Models.ViewModel;
+using MbmStore.Models.ViewModels;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -20,8 +20,10 @@ namespace MbmStore
 
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             services.AddControllersWithViews();
             services.AddMemoryCache();
             services.AddSession();

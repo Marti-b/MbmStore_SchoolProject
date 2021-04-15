@@ -1,6 +1,9 @@
-﻿@using MbmStore.Models.ViewModel;
-@model CartIndexViewModel
+﻿@model CartIndexViewModel
+@using MbmStore.Models.ViewModels
 @addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
 <h2>Your cart</h2>
 <table class="table table-bordered table-stripped">
@@ -20,13 +23,13 @@
                 <td class="text-left">@line.Product.Title</td>
                 <td class="text-right">@line.Product.Price.ToString("C")</td>
                 <td class="text-right">@((line.Quantity * line.Product.Price).ToString("C"))</td>
-                
+
                 <td>
                     <form asp-action="RemoveFromCart" method="post">
                         <input type="hidden" name="productID"
-                               value="@line.Product.ProductID"/>
+                               value="@line.Product.ProductID" />
                         <input type="hidden" name="returnUrl"
-                               value="@Model.ReturnUrl"/>
+                               value="@Model.ReturnUrl" />
                         <button type="submit" class="btn btn-sm btn-danger">
                             Remove
                         </button>

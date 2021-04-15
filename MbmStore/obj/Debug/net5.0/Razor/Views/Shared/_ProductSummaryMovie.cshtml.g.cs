@@ -14,7 +14,7 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
 #line 3 "C:\Users\marti\Dropbox\!DK_Webdev\GitHub\MbmStore_SchoolProject_Balazs Martikan\MbmStore\_ViewImports.cshtml"
-using MbmStore.Models.ViewModel;
+using MbmStore.Models.ViewModels;
 
 #line default
 #line hidden
@@ -34,7 +34,7 @@ using MbmStore.Models;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d54990eb2880c41617bd35c7efd6ea6d7b772c78", @"/Views/Shared/_ProductSummaryMovie.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b2f52962527013bec81c0ca3d849f083b97b3cd3", @"/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4af7181267169422e276273a091f7fc1f46a98ad", @"/_ViewImports.cshtml")]
     public class Views_Shared__ProductSummaryMovie : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<MbmStore.Models.Movie>
     {
         #pragma warning disable 1998

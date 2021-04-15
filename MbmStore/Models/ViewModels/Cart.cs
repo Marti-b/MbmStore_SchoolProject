@@ -4,7 +4,7 @@ using System.Linq;
 using System.Security.AccessControl;
 using System.Threading.Tasks;
 
-namespace MbmStore.Models
+namespace MbmStore.Models.ViewModels
 {
     public class Cart
     {

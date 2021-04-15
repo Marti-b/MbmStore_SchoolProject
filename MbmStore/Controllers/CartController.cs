@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using MbmStore.Models;
 using MbmStore.Infrastructure;
-using MbmStore.Models.ViewModel;
+using MbmStore.Models.ViewModels;
 
 namespace MbmStore.Controllers
 {
