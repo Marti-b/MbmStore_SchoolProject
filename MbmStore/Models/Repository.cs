@@ -86,7 +86,8 @@ namespace MbmStore.Models
             // Customers
             Customer c1 = new Customer("John", "Wick", "Sindicat", "New York", "666", new DateTime(1966, 12, 12));
             Customer c2 = new Customer("Arnold", "schwarzenegger", "California", "Los Angeles", "5846", new DateTime(1947, 07, 30));
-
+            c1.AddPhone(new Phone(1, "+491502366", 1,"mobile"));
+            c2.AddPhone(new Phone(2, "+362097856", 2,"mobile"));
             // Invoices
             Invoice i1 = new Invoice(25975, new DateTime(2021, 02, 26), c1);
             Invoice i2 = new Invoice(63579, new DateTime(2021, 01, 11), c2);

@@ -12,7 +12,6 @@ namespace MbmStore.Models
         public string Address { get; set; }
         public string City { get; set; }
         public string Zip { get; set; }
-        public List<string> PhoneNumber { get; } = new List<string>();
 
         private DateTime birthDate;
 
@@ -51,6 +50,10 @@ namespace MbmStore.Models
             }
         }
 
+        public virtual ICollection<Invoice> Invoices { get; set; }
+        public virtual ICollection<Phone> PhoneNumbers { get; set; } = new List<Phone>();
+        
+        public Customer() { }
         public Customer(string firstName, string lastName, string address, string city, string zip, DateTime birthDate)
         {
             FirstName = firstName;
@@ -62,9 +65,9 @@ namespace MbmStore.Models
             BirthDate = birthDate;
         }
 
-        public void AddPhone(string phone)
+        public void AddPhone(Phone phone)
         {
-            PhoneNumber.Add(phone);
+            PhoneNumbers.Add(phone);
         }
     }
 }
