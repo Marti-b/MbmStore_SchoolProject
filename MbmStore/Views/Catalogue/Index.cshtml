@@ -18,10 +18,10 @@
         }}
 
 
-    @if (Model.Products.OfType<MusicCd>().ToList().Count > 0)
+    @if (Model.Products.OfType<MusicCD>().ToList().Count > 0)
     {
         <h2>The CDs</h2>
-        @foreach (MusicCd cd in Model.Products.OfType<MusicCd>().ToList())
+        @foreach (MusicCD cd in Model.Products.OfType<MusicCD>().ToList())
         {
             @await Html.PartialAsync("_ProductSummaryMusicCD", cd);
         }}

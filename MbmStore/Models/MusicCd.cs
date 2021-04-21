@@ -6,25 +6,25 @@ using System.Threading.Tasks;
 
 namespace MbmStore.Models
 {
-    public class MusicCd: Product
+    public class MusicCD: Product
     {
         public List<Track> Tracks { get; } = new List<Track>();
         public string Artist { get; set; }
         public string Label { get; set; }
         public short Released { get; set; }
-        public MusicCd() { }
+        public MusicCD() { }
 
-        public MusicCd(string artist, string title, decimal price, short released, string imageFileName, int productID) : base(productID,title, price)
+        public MusicCD(string artist, string title, decimal price, short released, string imageUrl, int productID) : base(productID,title, price)
         {
             
             Artist = artist;
             Released = released;
-            ImageFileName = imageFileName;
+            ImageUrl = imageUrl;
         }
 
         public void AddTrack(Track track)
         {
-            //List<string> listOfTracks = new List<string>();
+            
             Tracks.Add(track);
             
         }

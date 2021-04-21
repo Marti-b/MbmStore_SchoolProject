@@ -27,7 +27,7 @@ namespace MbmStore.Controllers
         }
         public RedirectToActionResult AddToCart(int productID, string returnUrl)
         {
-            Product product = Repository.Products.FirstOrDefault(p => p.ProductID == productID);
+            Product product = Repository.Products.FirstOrDefault(p => p.ProductId == productID);
 
             if (product != null)
             {
@@ -39,7 +39,7 @@ namespace MbmStore.Controllers
         public RedirectToActionResult RemoveFromCart(int productID, string returnUrl)
         {
             Product product = Repository.Products.Find(p => 
-                p.ProductID == productID);
+                p.ProductId == productID);
             if (product != null)
             {
                 cart.RemoveLine(product);

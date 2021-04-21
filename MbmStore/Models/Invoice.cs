@@ -11,6 +11,7 @@ namespace MbmStore.Models
         private decimal totalPrice;
 
         public int InvoiceId { get; set; }
+        public int  CustomerId { get; set; }
         public decimal TotalPrice {
             get
             {
@@ -27,10 +28,12 @@ namespace MbmStore.Models
         public DateTime OrderDate { get; set; }
         public Customer Customer { get; set; }
         public List<OrderItem> OrderItems { get; } = new List<OrderItem>();
+        public Invoice() { }
 
         public Invoice(int invoiceId, DateTime orderDate, Customer customer)
         {
             InvoiceId = invoiceId;
+            OrderDate = orderDate;
             Customer = customer;
         }
 

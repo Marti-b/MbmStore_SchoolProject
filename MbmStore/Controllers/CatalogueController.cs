@@ -19,7 +19,7 @@ namespace MbmStore.Controllers
             {
                 Products = Repository.Products
                     .Where(p => category == null || p.Category == category)
-                    .OrderBy(p => p.ProductID)
+                    .OrderBy(p => p.ProductId)
                     .Skip((page - 1) * PageSize)
                     .Take(PageSize),
                 PagingInfo = new PagingInfo

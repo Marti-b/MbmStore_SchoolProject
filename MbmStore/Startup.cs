@@ -1,3 +1,4 @@
+using MbmStore.Data;
 using MbmStore.Models;
 using MbmStore.Models.ViewModels;
 using Microsoft.AspNetCore.Builder;
@@ -6,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 namespace MbmStore
 {
@@ -27,6 +29,9 @@ namespace MbmStore
             services.AddControllersWithViews();
             services.AddMemoryCache();
             services.AddSession();
+
+            services.AddDbContext<MbmStoreContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("MbmStoreContext")));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

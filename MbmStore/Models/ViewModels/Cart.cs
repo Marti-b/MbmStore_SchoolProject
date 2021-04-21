@@ -16,7 +16,7 @@ namespace MbmStore.Models.ViewModels
         {
             // Checking to see if the product is already in the cart
             CartLine item = lineCollection
-                .FirstOrDefault(p => p.Product.ProductID == product.ProductID);
+                .FirstOrDefault(p => p.Product.ProductId == product.ProductId);
 
             // Add product or update quantity
             if (item == null)
@@ -31,7 +31,7 @@ namespace MbmStore.Models.ViewModels
 
         public virtual void RemoveLine(Product product)
         {
-            lineCollection.RemoveAll(item => item.Product.ProductID == product.ProductID);
+            lineCollection.RemoveAll(item => item.Product.ProductId == product.ProductId);
         }
         //Linq sytanx, return total price for all products in the cart
         public decimal ComputeTotalValue() =>

@@ -14,13 +14,13 @@ namespace MbmStore.Controllers
             List<Customer> customers = new List<Customer>();
 
             
-            Customer c1 = new Customer("John", "Malkovic", "whatever", "New York", "6666", new DateTime(1965, 12, 12));
-            c1.AddPhone("+495694428");
-            customers.Add(c1);
+            //Customer c1 = new Customer("John", "Malkovic", "whatever", "New York", "6666", new DateTime(1965, 12, 12));
+            //c1.AddPhone("+495694428");
+            //customers.Add(c1);
 
-            Customer c2 = new Customer(firstName:"Kevin", lastName:"Forest", address:"whatever", city:"Los Angeles", zip:"6666", new DateTime(1978, 11, 29));
-            c2.AddPhone("+3620978456");
-            customers.Add(c2);
+            //Customer c2 = new Customer(firstName:"Kevin", lastName:"Forest", address:"whatever", city:"Los Angeles", zip:"6666", new DateTime(1978, 11, 29));
+            //c2.AddPhone("+3620978456");
+            //customers.Add(c2);
 
             // List<Customer> customers = new List<Customer>();
             //customers.Add(new Customer(firstName: "John", lastName: "Malkovic", address: "Bilbo Avenue", city: "New York", zip: "6578", 

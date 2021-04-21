@@ -27,7 +27,7 @@ Layout = "~/Views/Shared/_Layout.cshtml";
                 <td>
                     <form asp-action="RemoveFromCart" method="post">
                         <input type="hidden" name="productID"
-                               value="@line.Product.ProductID" />
+                               value="@line.Product.ProductId" />
                         <input type="hidden" name="returnUrl"
                                value="@Model.ReturnUrl" />
                         <button type="submit" class="btn btn-sm btn-danger">
