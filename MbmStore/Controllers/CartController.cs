@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MbmStore.Data;
 using MbmStore.Models;
 using MbmStore.Infrastructure;
 using MbmStore.Models.ViewModels;
@@ -11,7 +12,13 @@ namespace MbmStore.Controllers
 {
     public class CartController : Controller
     {
+        private MbmStoreContext dataContext;
         private Cart cart;
+
+        public CartController(MbmStoreContext dbContext)
+        {
+            dataContext = dbContext;
+        }
 
         public CartController(Cart cartService)
         {
@@ -27,7 +34,7 @@ namespace MbmStore.Controllers
         }
         public RedirectToActionResult AddToCart(int productID, string returnUrl)
         {
-            Product product = Repository.Products.FirstOrDefault(p => p.ProductId == productID);
+            Product product = dataContext.Products.FirstOrDefault(p => p.ProductId == productID);
 
             if (product != null)
             {
@@ -38,7 +45,7 @@ namespace MbmStore.Controllers
 
         public RedirectToActionResult RemoveFromCart(int productID, string returnUrl)
         {
-            Product product = Repository.Products.Find(p => 
+            Product product = dataContext.Products.Find(p => 
                 p.ProductId == productID);
             if (product != null)
             {
