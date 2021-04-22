@@ -10,7 +10,7 @@
    
     foreach (Customer customer in ViewBag.Customers)
     {
-        <p>@customer.FirstName @customer.LastName, @string.Join(",",customer.PhoneNumber)</p>
+        <p>@customer.FirstName @customer.LastName, @*@string.Join(",",customer.PhoneNumber)*@</p>
         <p>@customer.Zip @customer.City</p> 
         <p>@customer.FirstName is @customer.Age years old</p>
     }
