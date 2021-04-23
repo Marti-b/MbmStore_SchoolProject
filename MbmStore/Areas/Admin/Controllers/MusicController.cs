@@ -121,7 +121,7 @@ namespace MbmStore.Areas.Admin.Controllers
                     }
                     else
                     {
-                        throw;
+                        ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
                     }
                 }
                 return RedirectToAction(nameof(Index));
@@ -130,15 +130,22 @@ namespace MbmStore.Areas.Admin.Controllers
         }
 
         // GET: Admin/MusicCDs/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int? id, bool? saveChangesError = false)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
+            if (saveChangesError.GetValueOrDefault())
+            {
+                ViewData["ErrorMessage"] =
+                    "Delete failed. Try again, and if the problem persists see your system administrator.";
+            }
+
             var musicCD = await _context.MusicCDs
                 .FirstOrDefaultAsync(m => m.ProductId == id);
+
             if (musicCD == null)
             {
                 return NotFound();
@@ -150,7 +157,7 @@ namespace MbmStore.Areas.Admin.Controllers
         // POST: Admin/MusicCDs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> Delete(int ProductId)
         {
             var musicCD = await _context.MusicCDs.FindAsync(id);
             _context.MusicCDs.Remove(musicCD);
