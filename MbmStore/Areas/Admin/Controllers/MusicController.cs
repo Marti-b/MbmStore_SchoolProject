@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -55,14 +56,25 @@ namespace MbmStore.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Artist,Label,Released,ProductId,Title,Price,ImageUrl,Category")] MusicCD musicCD)
+        public async Task<IActionResult> Create(
+            [Bind("Artist,Label,Released,ProductId,Title,Price,ImageUrl,Category")] 
+            MusicCD musicCD)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _context.Add(musicCD);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+                    _context.Add(musicCD);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
             }
+            catch ((DataException /* dex */)
+            {
+                //Log the error (uncomment dex variable name and add a line here to write a log.
+                    ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
+            }
+           
             return View(musicCD);
         }
 
