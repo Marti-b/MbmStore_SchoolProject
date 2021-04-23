@@ -45,7 +45,7 @@ namespace MbmStore.Controllers
 
         public RedirectToActionResult RemoveFromCart(int productID, string returnUrl)
         {
-            Product product = dataContext.Products.Find(p => 
+            Product product = dataContext.Products.FirstOrDefault(p => 
                 p.ProductId == productID);
             if (product != null)
             {
