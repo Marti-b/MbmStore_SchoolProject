@@ -159,9 +159,21 @@ namespace MbmStore.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int ProductId)
         {
-            var musicCD = await _context.MusicCDs.FindAsync(id);
-            _context.MusicCDs.Remove(musicCD);
-            await _context.SaveChangesAsync();
+            try
+            {
+                var musicCD = await _context.MusicCDs.FindAsync(ProductId);
+                _context.MusicCDs.Remove(musicCD); 
+                await _context.SaveChangesAsync();
+            }
+            catch (DataException/* dex */)
+            {
+                //Log the error (uncomment dex variable name and add a line here to write a log.
+                return RedirectToAction("Delete", new
+                {
+                    id = ProductId,
+                    saveChangesError = true
+                });
+            }
             return RedirectToAction(nameof(Index));
         }
 
